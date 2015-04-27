@@ -73,7 +73,22 @@ body {
 }
 
 /* =General */
-
+.info {
+    display: none;
+}
+#fixedElement {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 200px;
+    text-align: center;
+    margin-left: -100px;
+    background-color: rgba(34,34,34,0.4);
+    color: rgba(255,255,255,0.7);
+    padding: 5px;
+    z-index: 3;
+    font-size: 12px;
+}
 /* =Header */
 header {
     background: #222222 url('../img/bcg_header_s.jpg') no-repeat top center;
@@ -97,8 +112,8 @@ header {
 main { }
     #profiles {
         background: url('../img/bcg_profiles.png') repeat-y top center;
+        background-attachment: fixed;
         color: #fff;
-        position: relative;
         background-size: auto 45px;
         z-index: 2;
     }
@@ -107,6 +122,7 @@ main { }
         margin: 0 5%;
         padding: 210px 0 20px 0;
         position: relative;
+        overflow: hidden;
     }
     .boxerA {
         margin-left: 0;
@@ -125,12 +141,12 @@ main { }
     .boxerA { float: left; margin-left: 0;}
     .boxerB { float: right; margin-right: 0;}
     .boxerImg {
-        width: 138px;
-        height: 152px;
+        width: 128px;
+        height: 141px;
         position: absolute;
         top: 30px;
         left: 50%;
-        margin-left: -69px;
+        margin-left: -64px;
     }
     #profiles:after {
         content: 'VS';
@@ -146,18 +162,19 @@ main { }
     }
     .boxerA .boxerImg {
         background: url('../img/img_boxerA.png') no-repeat top left;
-        background-size: 138px 152px;
+        background-size: 128px 141px;
     }
     .boxerB .boxerImg {
         background: url('../img/img_boxerB.png') no-repeat top left;
-        background-size: 138px 152px;
+        background-size: 128px 141px;
     }
 
 /* =Boxing Ring */
 #boxingRing {
     background-color: #e7e7e7;
     position: relative;
-    height: 344px;
+    overflow: hidden;
+    z-index: -1;
 }
     #stage {
         width: 300px;
@@ -169,6 +186,38 @@ main { }
         left: 50%;
         margin-left: -150px;
     }
+    .boxerTop {
+        width: 60px;
+        height: 51px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -117px 0 0 -84px;
+        z-index: 1;
+    }
+        .boxerTopA {
+            background: url('../img/img_boxerA-top.png') no-repeat 0 0;
+            background-size: 60px 51px;
+        }
+        .boxerTopB {
+            background: url('../img/img_boxerB-top.png') no-repeat 0 0;
+            background-size: 60px 51px;
+            margin: 24px 0 0 30px;
+        }
+    .indicator,
+    #round1,
+    #round2 {
+        display: none;
+    }
+    .winnersText {
+        margin: 350px -6% 0 -6%;
+        color: #fff;
+        background-color: rgba(31,31,31,1);
+        padding: 20px;
+    }
+        .winnersText h2 {
+            color: #f3cc11;
+        }
 
 /* =Footer */
 footer {
@@ -197,7 +246,14 @@ footer {
 
 @media only screen and (min-width: 768px) {
     /* =General */
+    #fixedElement {
+        top: 30px;
+        padding: 10px;
+        margin-left: -110px;
+        font-size: 1em;
+    }
     .indicator {
+        display: block;
         position: fixed;
         bottom: 50%;
         left: 50%;
@@ -213,6 +269,9 @@ footer {
             bottom: -34px;
             text-transform: uppercase;
         }
+    .indicatorB {
+        margin: 0 0 0 350px;
+    }
     /* =Header */
     header {
         background-image: url('../img/bcg_header.jpg');
@@ -262,7 +321,8 @@ footer {
     #boxingRing {
         background-color: #e7e7e7;
         position: relative;
-        height: 2325px;
+        height: 4650px;
+        overflow: hidden;
     }
         #stage {
             width: 718px;
@@ -278,20 +338,20 @@ footer {
         .boxerTop {
             width: 142px;
             height: 123px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
             margin: -240px 0 0 -200px;
-            z-index: 1;
         }
             .boxerTopA {
                 background: url('../img/img_boxerA-top.png') no-repeat 0 0;
+                background-size: 142px 123px;
             }
             .boxerTopB {
                 background: url('../img/img_boxerB-top.png') no-repeat 0 0;
+                background-size: 142px 123px;
                 margin: 50px 0 0 70px;
             }
-        #round1 {
+        #round1,
+        #round2 {
+            display: block;
             padding: 20px 30px;
             font-size: 2em;
             background-color: #222222;
@@ -313,40 +373,90 @@ footer {
             margin: -180px 0 0 -150px;;
             background: url('../img/img_move1.png') no-repeat 0 0;
         }
+        #winnersTrophy {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(31,31,31,0.5);
+            
 
-        .indicator{
-            position: fixed;
-            bottom: 50%;
-            left: 50%;
-            height: 5px;
-            width: 10px;
-            background-color: #abcc14;
-            margin: 0 0 0 -350px;
-        }
-            .indicator p {
-                text-align: center;
-                position: absolute;
-                bottom: -34px;
-                text-transform: uppercase;
-                margin: 0 0 0 -30px;
-            }
+  -webkit-transform: translateY(100%); 
+      -ms-transform: translateY(100%); 
+          transform: translateY(100%);
 
-        .indicator-right{
-            position: fixed;
-            bottom: 50%;
-            left: 50%;
-            height: 5px;
-            width: 10px;
-            background-color: #abcc14;
-            margin: 0 0 0 350px;
         }
-            .indicator-right p {
+            .winnersText {
+                position: fixed;
+                top: 320px;
+                left: 50%;
+                max-width: 500px;
+                margin: 0 0 0 -250px;
+                background-color: transparent;
+                padding: 0;
                 text-align: center;
-                position: absolute;
-                bottom: -34px;
-                text-transform: uppercase;
-                margin: 0 0 0 -30px;
+                z-index: 2;
             }
+                .winnersText h2 {
+                    font-size: 40px;
+                    margin-bottom: 0;
+                }
+            #belt,
+            #beam {
+                width: 537px;
+                height: 221px;
+                background: url('../img/img_belt.png') no-repeat 0 0;
+                position: fixed;
+                top: 30px;
+                left: 50%;
+                margin-left: -272px;
+            }
+            #beam {
+                background: url('../img/img_beam.png') no-repeat 0 0;
+                width: 819px;
+                height: 354px;
+                margin-left: -409px;
+                top: 0;
+            }
+    /* Remove fixed positioning for touch devices */
+    .touch #stage {
+        position: absolute;
+        top: 40px;
+        margin-top: 0;
+    }
+    .touch #boxingRing {
+        height: 1154px; /* experimential value set at the end of tweaking iPad Styles */
+    }
+    .touch .indicator,
+    .touch #belt,
+    .touch #beam,
+    .touch #winnersTrophy {
+        display: none;
+        margin-left: -9999em;
+    }
+    .touch .winnersText {
+        position: absolute;
+        top: 704px; /* stage height 654px + 50px */
+        background-color: transparent;
+        padding: 20px;
+        width: 100%;
+        max-width: none;
+        left: 0;
+        margin: 0;
+        text-align: center;
+        color: #222222;
+    }
+        .touch .winnersText h2 {
+            color: #222222;
+        }
+        .touch .winnersText p {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+        .touch .info {
+            display: block;
+        }
 
     /* =Footer */
 }
