@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Swapping Background Images</title>
+        <title>Using Percentage Values</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -84,6 +84,28 @@
                         data--450-top="opacity: 0; transform:translateY(-400px)"  
                     >Round 1</div>
 
+                    <div class="indicator"
+                        data-anchor-target="#boxingRing"
+                        data-top="opacity: !0; background-color: !rgb(171,204,20); height: 0px;" 
+                        data--400-top="opacity: !1; background-color: !rgb(171,204,20); height: 5px;"
+                        data-90p-bottom="opacity: !1; background-color: !rgb(255,204,20); height: 70px;"
+                        data-70p-bottom="opacity: !1; background-color: !rgb(231,76,60); height: 180px;"
+                        data-40p-bottom="opacity: !1; background-color: !rgb(255,76,60); height: 300px;"
+                    >
+                        <p>Fatigue</p>
+                    </div>
+
+                    <div class="indicator-right"
+                        data-anchor-target="#boxingRing"
+                        data-top="opacity: !0; background-color: !rgb(171,204,20); height: 0px;" 
+                        data--700-top="opacity: !1; background-color: !rgb(171,204,20); height: 5px;"
+                        data-70p-bottom="opacity: !1; background-color: !rgb(255,204,20); height: 70px;"
+                        data-50p-bottom="opacity: !1; background-color: !rgb(231,76,60); height: 180px;"
+                        data-20p-bottom="opacity: !1; background-color: !rgb(255,76,60); height: 300px;"
+                    >
+                        <p>Fatigue</p>
+                    </div>
+
                 </div>
             </div>
 
@@ -103,6 +125,7 @@
         var s = skrollr.init({
             forceHeight: false
         });
+
         </script>
 
         <script src="js/plugins.js"></script>
