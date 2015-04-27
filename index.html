@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Mastering Timing</title>
+        <title>Swapping Background Images</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -54,34 +54,34 @@
             <div id="boxingRing">
                 <div class="wrapper clearfix">
 
-                    <!-- <div id="stage"
-                        data-bottom="transform:scale(0.5)" data-top-bottom="transform:scale(1)" data-anchor-target="#profiles"
-                    ></div> -->
-
                     <div id="stage"
-                        data-bottom-top="transform[swing]:scale(0.5) rotate(120deg)" 
-                        data-top="transform[swing]:scale(1) rotate(0deg)" 
-                        data-anchor-target="#boxingRing"
+                        data-bottom-top="transform[swing]:scale(0.5) rotate(120deg)" data-top="transform[swing]:scale(1) rotate(0deg)" data-anchor-target="#boxingRing"
                     >
                         <div class="boxerTop boxerTopA"
-                            data-100-top="opacity: 0; transform[bounce]:scale(0.5)" 
-                            data-top="opacity: 1; transform[bounce]:scale(1)" 
-                            data-anchor-target="#boxingRing"
+                            data-100-top="opacity: 0; transform[bounce]:scale(0.5)" data-top="opacity: 1; transform[bounce]:scale(1)" data-anchor-target="#boxingRing"
                         ></div>
 
-                        <div class="boxerBottom boxerTopB"
-                            data-50-top="opacity: 0; transform[bounce]:scale(0.5)" 
-                            data-top="opacity: 1; transform[bounce]:scale(1)" 
-                            data-anchor-target="#boxingRing"
+                        <div class="boxerTop boxerTopB"
+                            data-50-top="opacity: 0; transform[bounce]:scale(0.5)" data-top="opacity: 1; transform[bounce]:scale(1)" data-anchor-target="#boxingRing"
                         ></div>
-                    </div>
+
+                        <div id="moves"
+                            data-anchor-target="#boxingRing"
+                            data--450-top="opacity: 0; background-image: !url(img/img_move1.png);"
+                            data--600-top="opacity: 1; background-image: !url(img/img_move2.png);"
+                            data--750-top="opacity: 1; background-image: !url(img/img_move3.png);"
+                            data--900-top="opacity: 1; background-image: !url(img/img_move1.png);"
+                            data--1050-top="opacity: 0; background-image: !url(img/img_move1.png);"
+                        ></div>
                         
-                    <div id="round1" 
+                    </div>
+                    
+                    <div id="round1"
                         data-anchor-target="#boxingRing"
-                        data-top="opacity: 0; transform: translateY(200px)"
-                        data--100-top="opacity: 1; transform: translateY(0px)"
-                        data--400-top="opacity: 1; transform: translateY(0px)"
-                        data--450-top="opacity: 0; transform: translateY(-400px)"
+                        data-top="opacity: 0; transform:translateY(200px)"
+                        data--100-top="opacity: 1; transform:translateY(0px)"
+                        data--400-top="opacity: 1; transform:translateY(0px)"
+                        data--450-top="opacity: 0; transform:translateY(-400px)"  
                     >Round 1</div>
 
                 </div>
@@ -100,7 +100,9 @@
 
         <script type="text/javascript" src="js/skrollr.min.js"></script>
         <script type="text/javascript">
-        var s = skrollr.init();
+        var s = skrollr.init({
+            forceHeight: false
+        });
         </script>
 
         <script src="js/plugins.js"></script>

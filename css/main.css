@@ -247,7 +247,7 @@ footer {
     #boxingRing {
         background-color: #e7e7e7;
         position: relative;
-        height: 1325px;
+        height: 2325px;
     }
         #stage {
             width: 718px;
@@ -267,28 +267,20 @@ footer {
             top: 50%;
             left: 50%;
             margin: -240px 0 0 -200px;
+            z-index: 2;
         }
             .boxerTopA {
                 background: url('../img/img_boxerA-top.png') no-repeat 0 0;
             }
-
-         .boxerBottom {
-            width: 142px;
-            height: 123px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin: 50px 0 0 70px;
-        }
             .boxerTopB {
                 background: url('../img/img_boxerB-top.png') no-repeat 0 0;
+                margin: 50px 0 0 70px;
             }
-
             #round1 {
                 padding: 20px 30px;
                 font-size: 2em;
                 background-color: #222222;
-                color: #FFF;
+                color: #fff;
                 text-transform: uppercase;
                 width: 170px;
                 text-align: center;
@@ -296,6 +288,16 @@ footer {
                 top: 50%;
                 left: 50%;
                 margin: -80px 0 0 -110px;
+            }
+
+            #moves {
+                width: 313px;
+                height: 295px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: -180px 0 0 -150px;
+                background: url('../img/img_move1.png') no-repeat 0 0;
             }
     /* =Footer */
 }
